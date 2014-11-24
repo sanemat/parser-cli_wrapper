@@ -1,5 +1,12 @@
 #!/usr/bin/env ruby
+# encoding: UTF-8
 
 require 'parser/runner/ruby_parse'
+buff = {}
 
+if ARGV.delete('-')
+  while line = STDIN.gets
+    buff << line
+  end
+end
 Parser::Runner::RubyParse.go(ARGV)
