@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
-puts 'ruby-parse-wrapped'
+require 'parser/runner/ruby_parse'
+
+Parser::Runner::RubyParse.go(ARGV)
