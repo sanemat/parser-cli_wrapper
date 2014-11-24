@@ -3,7 +3,7 @@ AllCops:
   Include:
     - '**/Rakefile'
     - Gemfile
-    - tachikoma.gemspec
+    - parser-cli_wrapper.gemspec
     - bin/**
     - lib/**/*.rake
   Exclude:
