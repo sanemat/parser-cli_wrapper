@@ -1,6 +1,24 @@
 #!/usr/bin/env ruby
 
-$LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
+require 'tempfile'
 require 'parser/runner/ruby_rewrite'
 
-Parser::Runner::RubyRewrite.go(ARGV)
+buff = []
+
+flag_stdin = ARGV.delete('-')
+
+if flag_stdin
+  while line = STDIN.gets
+    buff << line
+  end
+end
+
+if flag_stdin
+  Tempfile.open(['temp', '.rb']) { |file|
+    file.print(buff.join)
+    file.rewind
+    Parser::Runner::RubyRewrite.go(ARGV + [file.path])
+  }
+else
+  Parser::Runner::RubyRewrite.go(ARGV)
+end
