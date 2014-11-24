@@ -13,7 +13,7 @@ $ cat Gemfile | ruby-parse-wrapped -
   (send nil :gemspec))
 ```
 
-`*-rapped` command accepts all existing options.
+`*-wrapped` command accepts all existing options.
 
 ```
 $ ruby-parse-wrapped Gemfile
