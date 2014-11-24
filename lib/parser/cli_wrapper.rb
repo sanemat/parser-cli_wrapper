@@ -1,4 +1,4 @@
-require "parser/cli_wrapper/version"
+require 'parser/cli_wrapper/version'
 
 module Parser
   module CliWrapper
