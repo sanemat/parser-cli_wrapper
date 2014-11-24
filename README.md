@@ -1,6 +1,29 @@
 # Parser::CliWrapper
 
-TODO: Write a gem description
+This replaces '-' with STDIN like unix option, the example below:
+
+```
+$ cat Gemfile | ruby-parse-wrapped -
+(begin
+  (send nil :source
+    (str "https://rubygems.org"))
+  (send nil :gemspec))
+```
+
+This is pareparation:
+
+```
+$ cat Gemfile
+source 'https://rubygems.org';
+
+gemspec
+
+$ ruby-parse Gemfile
+(begin
+  (send nil :source
+    (str "https://rubygems.org"))
+  (send nil :gemspec))
+```
 
 ## Installation
 
