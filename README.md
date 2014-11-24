@@ -1,9 +1,22 @@
 # Parser::CliWrapper
 
-This replaces '-' with STDIN like unix option, the example below:
+Parser::CliWrapper provides `ruby-parse-wrapped` and `ruby-rewrite-wrapped` command.
+`Parser` gem provides both `ruby-parse` and `ruby-rewrite`, but these don't accept _STDIN_.
+
+This replaces '-' with _STDIN_ like unix option, the example below:
 
 ```
 $ cat Gemfile | ruby-parse-wrapped -
+(begin
+  (send nil :source
+    (str "https://rubygems.org"))
+  (send nil :gemspec))
+```
+
+`*-rapped` command accepts all existing options.
+
+```
+$ ruby-parse-wrapped Gemfile
 (begin
   (send nil :source
     (str "https://rubygems.org"))
