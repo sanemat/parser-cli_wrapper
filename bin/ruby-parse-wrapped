@@ -4,7 +4,7 @@ require 'parser/runner/ruby_parse'
 
 buff = []
 
-flag_stdin = !!ARGV.delete('-')
+flag_stdin = ARGV.delete('-')
 
 if flag_stdin
   while line = STDIN.gets
@@ -14,7 +14,7 @@ end
 
 if flag_stdin
   Tempfile.open(['temp', '.rb']) { |file|
-    file.print(buff.join())
+    file.print(buff.join)
     file.rewind
     Parser::Runner::RubyParse.go(ARGV + [file.path])
   }
